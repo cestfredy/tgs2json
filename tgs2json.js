@@ -5,16 +5,16 @@
 // But then I thought, why not write my own script?
 // It's quite simple, and here it's: I built tgs2json!
 
-import { inflate } from 'pako';
-import fs from 'fs/promises';
-import path from 'path';
-import process from 'process';
+import { gunzipSync } from 'node:zlib';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import process from 'node:process';
 
 // Write the decompressed tgs data into a JSON file with the same original name.
 async function convertTgsToJson(tgsFilePath, outputDirectory) {
     try {
         const fileBuffer = await fs.readFile(tgsFilePath);
-        const decompressedData = inflate(fileBuffer, { to: 'string' });
+        const decompressedData = gunzipSync(fileBuffer).toString('utf-8');
 
         const fileName = path.basename(tgsFilePath, '.tgs');
         const jsonFilePath = path.join(outputDirectory, `${fileName}.json`);
