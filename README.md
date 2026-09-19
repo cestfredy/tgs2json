@@ -1,100 +1,32 @@
 # tgs2json
 
-`tgs2json`  is a quick and effective command-line tool for converting Telegram `.tgs` sticker files into `.json` format quickly and easily.
+Convert Telegram `.tgs` stickers to Lottie `.json`. No dependencies.
 
----
-
-## Installation
-
-Make sure you have Node.js installed on your system. You can download it from [nodejs.org](https://nodejs.org/).
-
-### Install via NPM
-
-To install globally, run:
+## Install
 
 ```sh
-npm i tgs2json -g
+npm i -g tgs2json
 ```
 
-### Clone the Repository
-
-Alternatively, you can clone this repository and set it up locally:
-
-```sh
-git clone https://github.com/nullhq/tgs2json.git
-cd tgs2json
-```
-
-To make the script globally executable, run:
-
-```sh
-npm install -g
-```
-
----
+Requires Node.js 18.11+.
 
 ## Usage
 
-### Convert a Specific `.tgs` File
-
-To convert a single `.tgs` file to `.json`, use:
-
 ```sh
-tgs2json your_file.tgs
+tgs2json sticker.tgs              # one file
+tgs2json a.tgs b.tgs              # several files
+tgs2json *                        # every .tgs in the current directory
+tgs2json -o out *                 # write to ./out (created if missing)
 ```
 
-### Convert All `.tgs` Files in the Current Directory
+| Option               | Description                                |
+| -------------------- | ------------------------------------------ |
+| `-o, --output <dir>` | Output directory (default: current directory) |
+| `-h, --help`         | Show help                                  |
+| `-v, --version`      | Show version                               |
 
-To convert all `.tgs` files in the current folder, use:
-
-```sh
-tgs2json *
-```
-
-### Specify an Output Folder
-
-You can specify an output folder for the `.json` files using the `-o` option:
-
-```sh
-tgs2json -o output_folder your_file.tgs
-```
-
-or:
-
-```sh
-tgs2json -o output_folder *
-```
-
-If the folder doesn’t exist, it'll be created automatically.
-
----
-
-## Example
-
-Suppose you've a file `example.tgs` in your current directory and want to convert it to a `.json` file in an `output` folder:
-
-```sh
-tgs2json -o output example.tgs
-```
-
-To convert all `.tgs` files in the current directory and place the `.json` files in the `output` folder:
-
-```sh
-tgs2json -o output *
-```
-
----
-
-## Dependencie
-
-This project uses the following module:
-- **`pako`**: For decompressing `.tgs` files.
----
+Exits with code `1` if any file fails to convert.
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
----
-
-Feel free to contribute or report any issues! 🛠️
+[MIT](LICENSE)
