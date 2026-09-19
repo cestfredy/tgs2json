@@ -4,12 +4,34 @@
   "version": "1.1.0",
   "main": "tgs2json.js",
   "type": "module",
+  "scripts": {
+    "test": "node --test"
+  },
   "bin": {
     "tgs2json": "./tgs2json.js"
   },
+  "files": [
+    "tgs2json.js"
+  ],
   "engines": {
     "node": ">=18.11"
   },
-  "author": "t.me/nullhq",
-  "license": "ISC"
+  "keywords": [
+    "telegram",
+    "tgs",
+    "sticker",
+    "lottie",
+    "json",
+    "cli"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cestfredy/tgs2json.git"
+  },
+  "author": "Fredy",
+  "homepage": "https://github.com/cestfredy/tgs2json#readme",
+  "bugs": {
+    "url": "https://github.com/cestfredy/tgs2json/issues"
+  },
+  "license": "MIT"
 }
